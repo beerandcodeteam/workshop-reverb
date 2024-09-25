@@ -4,7 +4,7 @@
         <template x-for="notification in notifications" :key="notification.message.id">
             <div
                 x-data="open = true"
-                x-init="setTimeout(() => {open = false; notifications = notifications.filter(not => not.message.id != notification.message.id)}, 2000)"
+                x-init="setTimeout(() => {open = false; notifications = notifications.filter(not => not.message.id != notification.message.id)}, 10000)"
                 x-show="open"
                 x-transition:enter="transform ease-out duration-300 transition"
                 x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"

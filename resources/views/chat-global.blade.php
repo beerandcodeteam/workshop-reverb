@@ -12,7 +12,7 @@
         </div>
 
 
-        <form action="" method="POST" @submit.prevent="sendMessage">
+        <form @submit.prevent="sendMessage">
             @csrf
             <div class="mt-2 flex rounded-md shadow-sm">
                 <div class="relative flex flex-grow items-stretch focus-within:z-10">

@@ -17,7 +17,7 @@
                                     <template x-if="user.id !== user_id">
                                         <li>
                                             <!-- Current: "bg-gray-50 text-indigo-600", Default: "text-gray-700 hover:text-indigo-600 hover:bg-gray-50" -->
-                                            <a href="#"
+                                            <a :href="route('chat.user', user.id)"
                                                class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-indigo-600">
                                                 <span
                                                     x-text="user.name.charAt(0)"

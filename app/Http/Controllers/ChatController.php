@@ -19,7 +19,7 @@ class ChatController extends Controller
 
     public function chat(User $user)
     {
-        $chat = Chat::with('messages')->whereHas('participants', function ($query) use ($user) {
+        $chat = Chat::with('messages')->whereHas('participants', function ($query) {
             $query->where('user_id', auth()->id());
         })->whereHas('participants', function ($query) use ($user) {
             $query->where('user_id', $user->id);
@@ -44,10 +44,8 @@ class ChatController extends Controller
         ]);
 
         $user = $chat->participants()->whereNot('users.id', auth()->id())->first();
-
         $user->notify(new NewMessageNotification(auth()->user(), $chat, $message));
         NewMessage::dispatch(auth()->id(), $chat, $message);
-
         return redirect()->back();
     }
 }
